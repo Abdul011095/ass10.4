@@ -1,0 +1,20 @@
+create table titn(PassengerId int,Survives int,Pclass int,Name string,Age int,SibSp int,Parch int,ticket string,fare int,cabin int,Embarked string)
+row format delimited
+fields terminated by ',';
+
+
+load data local inpath '/home/acadgild/Downloads/TitanicData.txt' into table titn;
+
+select AVG(age) as ma from titn where Sex='male' and Survived=1;
+
+
+select AVG(age) as fa from titn where Sex='female' and Survived=1;
+
+select Pclass,COUNT(Name) from titn where Survived=1 group by Pclass
+
+select Pclass,COUNT(Name) from titn where Survived=0 group by Pclass;
+
+
+
+
+
